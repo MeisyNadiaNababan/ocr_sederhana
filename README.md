@@ -28,13 +28,13 @@ dependencies:
 ```
 
 <p align="center">
-  <img src="Images/02.png" width="400">
+  <img src="images/02.png" width="400">
 </p>
 
 Simpan file lalu jalankan 
 
 <p align="center">
-  <img src="Images/03.jpg" width="400">
+  <img src="images/03.jpg" width="400">
 </p>
 
 **4.3. Langkah 3: Tambahkan Izin Kamera (Android)**
@@ -48,7 +48,7 @@ Tambahkan baris berikut di dalam tag <manifest>, sebelum <application>:
 ```
 
 <p align="center">
-  <img src="Images/04.jpg" width="400">
+  <img src="images/04.jpg" width="400">
 </p>
 
 **4.4. Langkah 4: Buat Struktur Folder**
@@ -56,7 +56,7 @@ Tambahkan baris berikut di dalam tag <manifest>, sebelum <application>:
 Di dalam folder lib/, buat struktur berikut:
 
 <p align="center">
-  <img src="Images/05.jpg" width="400">
+  <img src="images/05.jpg" width="400">
 </p>
 
 5. KODE PROGRAM
@@ -339,15 +339,15 @@ Di dalam folder lib/, buat struktur berikut:
 
 1. Jalankan aplikasi di emulator atau HP.
 <p align="center">
-  <img src="Images/06.jpg" width="400">
+  <img src="images/06.jpg" width="400">
 </p>
 2. Lakukan scan terhadap teks cetak (misal: buku, koran, atau layar HP).
 <p align="center">
-  <img src="Images/07.jpg" width="400">
+  <img src="images/07.jpg" width="400">
 </p>
 3. Amati hasil OCR yang muncul.
 <p align="center">
-  <img src="Images/08.jpg" width="400">
+  <img src="images/08.jpg" width="400">
 </p>
 4. Jawab pertanyaan berikut:
 
