@@ -372,3 +372,173 @@ c. Sebutkan 2 contoh aplikasi nyata yang menggunakan OCR!
 
 - Google Lens – dapat mengenali teks pada foto, papan nama, atau dokumen, lalu menyalinnya ke teks digital.
 - Adobe Scan – aplikasi pemindai dokumen yang mengubah foto menjadi file PDF dengan teks yang bisa disalin atau dicari.
+
+
+
+
+**NAMA LENGKAP : Meisy Nadia Nababan**
+<br>**KELAS : 3F**
+<br>**NIM : 2341760031**
+<br>**UTS: Aplikasi OCR**
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+**Instruksi Awal (SETUP) - Wajib**
+
+1. Pastikan proyek ocr_sederhana sudah diinisialisasi sebagai repositori Git dan ter- hubung ke akun GitHub Anda.
+<br>
+2.	Lakukan commit awal untuk memastikan branch main Anda bersih.
+```dart
+git add .
+git commit -m "UTS: Basis awal proyek OCR Sederhana" git push origin main
+```
+<p align="center">
+  <img src="images/09.png" width="400">
+</p>
+
+**Soal 1:	Modifikasi Struktur Navigasi dan Aliran**
+
+1. Pengubahan Navigasi Home 
+
+• Ubah ElevatedButton di HomeScreen (lib/screens/home_screen.dart) men- jadi *widget* **ListTile**.
+<p align="center">
+  <img src="images/10.png" width="400">
+</p>
+•	Atur ListTile: leading: Icon(Icons.camera_alt, color:	Colors.blue); title: Text(’Mulai Pindai Teks Baru’).
+<p align="center">
+  <img src="images/11.png" width="400">
+</p>
+•	Fungsi onTap harus menggunakan Navigator.push() untuk ke ScanScreen.
+<p align="center">
+  <img src="images/12.png" width="400">
+</p>
+
+2.	Teks Utuh dan Navigasi Balik 
+
+•	Di ResultScreen (lib/screens/result_screen.dart), hapus fungsi ocrText.replaceAll
+agar hasil teks ditampilkan dengan baris baru (\n) yang utuh.
+<p align="center">
+  <img src="images/13.png" width="400">
+</p>
+•	Tambahkan FloatingActionButton dengan ikon Icons.home.
+<p align="center">
+  <img src="images/14.png" width="400">
+</p>
+•	Ketika tombol ditekan, navigasi harus kembali langsung ke HomeScreen meng- gunakan **Navigator.pushAndRemoveUntil()** (atau metode yang setara) untuk menghapus semua halaman di atasnya dari stack navigasi.
+<p align="center">
+  <img src="images/15.png" width="400">
+</p>
+
+**Perintah Commit Wajib (Soal 1)**
+<br>
+Setelah Soal 1 selesai, lakukan commit dan push dengan pesan:
+git add lib/screens/home_screen.dart lib/screens/result_screen.dart git commit -m "UTS: Selesai Soal 1 - ListTile dan Navigasi Balik" git push origin main
+<p align="center">
+  <img src="images/16.png" width="400">
+</p>
+
+**Soal 2:	Modifikasi Struktur Navigasi dan Aliran**
+Tujuan: Memperbaiki tampilan *loading* dan memberikan *feedback* error yang lebih jelas.
+1.	Custom Loading Screen di ScanScreen 
+
+•	Di ScanScreen (lib/screens/scan_screen.dart), modifikasi tampilan *load- ing* yang muncul sebelum kamera siap (if (!controller.value.isInitialized)) :
+<br>
+•	Latar Belakang:	Scaffold(backgroundColor:	Colors.grey[900]).
+<p align="center">
+  <img src="images/17.png" width="400">
+</p>
+• Isi: Di dalam Center, tampilkan Column berisi CircularProgressIndicator(col Colors.yellow).
+<p align="center">
+  <img src="images/18.png" width="400">
+</p>
+•	Di bawah indikator, tambahkan Text(’Memuat Kamera...	Harap tunggu.’, style:	TextStyle(color:	Colors.white, fontSize:	18)).
+<p align="center">
+  <img src="images/19.png" width="400">
+</p>
+
+2. Spesifikasi Pesan Error (20 Poin):
+
+•	Di fungsi _takePicture() pada ScanScreen, modifikasi blok catch (e) un- tuk mengubah pesan *error* pada SnackBar.
+<p align="center">
+  <img src="images/20.png" width="400">
+</p>
+•	Pesan SnackBar harus berbunyi: "Pemindaian Gagal! Periksa Izin Kam- era atau coba lagi." (Hilangkan variabel *error* ($e)).
+<p align="center">
+  <img src="images/21.png" width="400">
+</p>
+
+**Perintah Commit Wajib (Soal 2)**
+<br>
+Setelah Soal 2 selesai, lakukan commit dan push dengan pesan:
+git add lib/screens/scan_screen.dart
+git commit -m "UTS: Selesai Soal 2 - Tampilan Loading dan Error" git push origin main
+<p align="center">
+  <img src="images/22.png" width="400">
+</p>
+
+**Soal 3:	Implementasi Plugin Text-to-Speech (TTS)**
+Tujuan:  Mengintegrasikan fitur membaca teks secara lisan menggunakan *plugin* flutter_tts.
+1.	Instalasi Plugin 
+
+•	Tambahkan *plugin* flutter_tts ke dalam file pubspec.yaml (gunakan versi terbaru yang kompatibel).
+<p align="center">
+  <img src="images/23.png" width="400">
+</p>
+•	Jalankan flutter pub get.
+<p align="center">
+  <img src="images/24.png" width="400">
+</p>
+2.	Konversi Widget dan Inisialisasi
+
+•	Ubah ResultScreen dari StatelessWidget menjadi **StatefulWidget**.
+<p align="center">
+  <img src="images/25.png" width="400">
+</p>
+
+•	Di initState(), inisialisasi FlutterTts dan atur bahasa pembacaan menjadi Bahasa Indonesia.
+<p align="center">
+  <img src="images/26.png" width="400">
+</p>
+
+•	Implementasikan dispose() untuk menghentikan mesin TTS saat halaman ditutup.
+<p align="center">
+  <img src="images/27.png" width="400">
+</p>
+
+3.	Fungsionalitas Pembacaan
+•	Tambahkan FloatingActionButton kedua di ResultScreen (atau ganti AppBar
+dengan action button) dengan ikon Icons.volume_up.
+<p align="center">
+  <img src="images/28.png" width="400">
+</p>
+•	Ketika tombol ditekan, panggil fungsi speak() pada FlutterTts untuk mem- bacakan seluruh isi ocrText.
+<p align="center">
+  <img src="images/29.png" width="400">
+</p>
+
+**Perintah Commit Wajib (Soal 3)**
+<br>
+Setelah Soal 3 selesai, lakukan commit dan push terakhir dengan pesan:
+git add pubspec.yaml lib/screens/result_screen.dart
+git commit -m "UTS: Selesai Soal 3 - Implementasi Flutter TTS" git push origin main
+<p align="center">
+  <img src="images/30.png" width="400">
+</p>
+
+Output:
+<br>
+Tampilan awal
+<p align="center">
+  <img src="images/31.png" width="400">
+</p>
+
+Tampilan scan
+<p align="center">
+  <img src="images/32.png" width="400">
+</p>
+
+Tampilan hasil teks + suara
+ket: bisa melalukan pause dengan menekan button, lalu jika belum selesai dibacakan namun button home di klik maka suara akan mati
+<p align="center">
+  <img src="images/33.png" width="400">
+</p>
